@@ -14,9 +14,6 @@ import (
 
 func main() {
 	flag.Parse()
-	
-	host := DetectHost()
-	fmt.Println(host)
 
 	if err := embd.InitGPIO(); err != nil {
 		panic(err)
