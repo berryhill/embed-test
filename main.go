@@ -14,7 +14,7 @@ import (
 
 func main() {
 	flag.Parse()
-	fmt.Println("Controller Starting...")
+	fmt.Println("Gateway Running...")
 
 	if err := embd.InitGPIO(); err != nil {
 		panic(err)
