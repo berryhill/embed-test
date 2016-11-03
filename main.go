@@ -5,6 +5,7 @@ package main
 import (
 	"flag"
 	"time"
+	"fmt"
 
 	"github.com/kidoman/embd"
 
@@ -13,6 +14,9 @@ import (
 
 func main() {
 	flag.Parse()
+	
+	host := DetectHost()
+	fmt.Println(host)
 
 	if err := embd.InitGPIO(); err != nil {
 		panic(err)
@@ -28,11 +32,16 @@ func main() {
 	if err := led.SetDirection(embd.Out); err != nil {
 		panic(err)
 	}
-	if err := led.Write(embd.High); err != nil {
+//	if err := led.Write(embd.High); err != nil {
+//		panic(err)
+//	}
+
+	time.Sleep(1 * time.Second)
+
+	if err := led.Write(embd.Low); err != nil {
 		panic(err)
 	}
 
-	time.Sleep(1 * time.Second)
 
 	if err := led.SetDirection(embd.In); err != nil {
 		panic(err)
