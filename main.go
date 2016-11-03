@@ -3,45 +3,24 @@
 package main
 
 import (
-	"flag"
-	"time"
 	"fmt"
 
 	"github.com/kidoman/embd"
-
 	_ "github.com/kidoman/embd/host/all"
 )
 
 func main() {
-	flag.Parse()
-	fmt.Println("Gateway Running...")
-
-	if err := embd.InitGPIO(); err != nil {
+	if err := embd.InitSPI(); err != nil {
 		panic(err)
 	}
-	defer embd.CloseGPIO()
+	defer embd.CloseSPI()
 
-	led, err := embd.NewDigitalPin(10)
+	spiBus := embd.NewSPIBus(embd.SPIMode0, 0, 1000000, 8, 0)
+	defer spiBus.Close()
+
+	receivedByte, err = spiBus.ReceiveByte()
 	if err != nil {
 		panic(err)
 	}
-	defer led.Close()
-
-	if err := led.SetDirection(embd.Out); err != nil {
-		panic(err)
-	}
-
-	for {
-		if err := led.Write(embd.High); err != nil {
-			panic(err)
-		}
-
-		time.Sleep(1 * time.Second)
-		if err := led.Write(embd.Low); err != nil {
-			panic(err)
-		}
-	}
-	//if err := led.SetDirection(embd.In); err != nil {
-	//	panic(err)
-	//}
+	fmt.Println("received byte is:", receivedByte)
 }
