@@ -46,13 +46,6 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		
-		fmt.Println(dataReceived)
-
-		temp, err := baro.Temperature()
-		if err != nil {
-			panic(err)
-		}
 		fmt.Printf("Temp is %v\n", temp)
 		pressure, err := baro.Pressure()
 		if err != nil {
