@@ -5,6 +5,7 @@ package main
 import (
 	"fmt"
 	"flag"
+	"time"
 	
 	"github.com/kidoman/embd"
 	"github.com/kidoman/embd/sensor/bmp085"
