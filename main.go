@@ -74,6 +74,7 @@ func main() {
 			panic(err)
 		}
 
+		fmt.Println(temp)
 		fmt.Println(dataReceived)
 		time.Sleep(50 * time.Millisecond)
 
