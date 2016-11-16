@@ -25,7 +25,7 @@ func main() {
 //	fmt.Println("received byte is:", receivedByte)
 //	count := 0
 
-	dataByte := byte(0)
+	dataByte := byte(170)
 	fmt.Println("starting")
 
 	for k := 0; k < 100000; k++ { 
