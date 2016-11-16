@@ -73,7 +73,6 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		return temp, nil
 
 		fmt.Println(dataReceived)
 		time.Sleep(50 * time.Millisecond)
