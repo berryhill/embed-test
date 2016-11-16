@@ -56,7 +56,7 @@ func main() {
 	//dataByte := byte(85)
 
 	fmt.Println("starting")
-	i2cBus, err := i2c.New(0xFF, 1)
+	i2cBus, err := i2c.New(byte(15), 1)
 	if err != nil {
 		panic(err)
 	}
