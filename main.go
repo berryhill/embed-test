@@ -18,7 +18,7 @@ func main() {
 	spiBus := embd.NewSPIBus(embd.SPIMode0, 0, 1000000, 8, 0)
 	defer spiBus.Close()
 
-	dataByte := byte(170)
+	dataByte := byte(85)
 	fmt.Println("starting")
 
 	for k := 0; k < 100000; k++ { 
