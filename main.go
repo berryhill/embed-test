@@ -8,7 +8,6 @@ import (
 	"time"
 	
 	"github.com/kidoman/embd"
-	"github.com/kidoman/embd/sensor/bmp085"
 	_ "github.com/kidoman/embd/host/all"
 )
 
@@ -55,10 +54,7 @@ func main() {
 	}
 	defer embd.CloseI2C()
 
-	bus := embd.NewI2CBus(1)
-
-	baro := bmp085.New(bus)
-	defer baro.Close()
+	i2cBus := embd.NewI2CBus(1)
 
 	dataByte := byte(85)
 	fmt.Println("starting")
