@@ -39,13 +39,13 @@ const (
 )
 
 func main() {
-	if err := embd.InitSPI(); err != nil {
-		panic(err)
-	}
-	defer embd.CloseSPI()
-
-	spiBus := embd.NewSPIBus(embd.SPIMode0, 0, 1000000, 8, 0)
-	defer spiBus.Close()
+	//if err := embd.InitSPI(); err != nil {
+	//	panic(err)
+	//}
+	//defer embd.CloseSPI()
+	//
+	//spiBus := embd.NewSPIBus(embd.SPIMode0, 0, 1000000, 8, 0)
+	//defer spiBus.Close()
 
 	flag.Parse()
 
@@ -56,14 +56,14 @@ func main() {
 
 	i2cBus := embd.NewI2CBus(1)
 
-	dataByte := byte(85)
+	//dataByte := byte(85)
 	fmt.Println("starting")
 
 	for k := 0; k < 100000; k++ { 
-		dataReceived, err := spiBus.TransferAndReceiveByte(dataByte)
-		if err != nil {
-			panic(err)
-		}
+		//dataReceived, err := spiBus.TransferAndReceiveByte(dataByte)
+		//if err != nil {
+		//	panic(err)
+		//}
 
 		if err :=  i2cBus.WriteByteToReg(address, control, readTempCmd); err != nil {
 			panic(err)
@@ -75,7 +75,7 @@ func main() {
 		}
 
 		fmt.Println(temp)
-		fmt.Println(dataReceived)
+		//fmt.Println(dataReceived)
 		time.Sleep(50 * time.Millisecond)
 
 	}
