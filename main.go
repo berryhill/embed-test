@@ -31,8 +31,6 @@ func main() {
 	baro := bmp085.New(bus)
 	defer baro.Close()
 
-	baro := bmp085.New(bus)
-
 	dataByte := byte(85)
 	fmt.Println("starting")
 
@@ -42,7 +40,7 @@ func main() {
 			panic(err)
 		}
 
-		temp, err := .Temperature()
+		temp, err := baro.Temperature()
 		if err != nil {
 			panic(err)
 		}
