@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"flag"
 	
 	"github.com/kidoman/embd"
 	"github.com/kidoman/embd/sensor/bmp085"
@@ -21,7 +22,7 @@ func main() {
 
 	flag.Parse()
 
-	if err = embd.InitI2C(); err != nil {
+	if err := embd.InitI2C(); err != nil {
 		panic(err)
 	}
 	defer embd.CloseI2C()
