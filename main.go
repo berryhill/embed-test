@@ -58,6 +58,8 @@ func main() {
 		}
 		fmt.Printf("Altitude is %v\n", altitude)
 
+		fmt.Println(dataReceived)
+
 		time.Sleep(50 * time.Millisecond)
 
 	}
