@@ -3,11 +3,13 @@
 package main
 
 import (
-	"fmt"
-	"flag"
-	"time"
+	//"fmt"
+	//"flag"
+	//"time"
+
+	"github.com/embed-test/i2c"
 	
-	"github.com/kidoman/embd"
+	//"github.com/kidoman/embd"
 	//_ "github.com/kidoman/embd/host/all"
 )
 //
