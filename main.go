@@ -3,7 +3,7 @@
 package main
 
 import (
-	//"fmt"
+	"fmt"
 	//"flag"
 	//"time"
 
@@ -56,7 +56,10 @@ func main() {
 	//dataByte := byte(85)
 
 	fmt.Println("starting")
-	i2cBus := i2c.New(0x0AA, 1)
+	i2cBus, err := i2c.New(0x0AA, 1)
+	if err != nil {
+		panic(err)
+	}
 
 	for {
 		//dataReceived, err := spiBus.TransferAndReceiveByte(dataByte)
