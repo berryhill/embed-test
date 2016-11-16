@@ -66,12 +66,12 @@ func main() {
 		}
 
 		if err :=  i2cBus.WriteByteToReg(address, control, readTempCmd); err != nil {
-			return 0, err
+			panic(err)
 		}
 		time.Sleep(50 * time.Millisecond)
 		temp, err := i2cBus.ReadWordFromReg(address, tempData)
 		if err != nil {
-			return 0, err
+			panic(err)
 		}
 		return temp, nil
 
