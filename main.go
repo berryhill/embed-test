@@ -30,7 +30,7 @@ func main() {
 	}
 
 	for {
-		i2cBus.WriteByte(byte(255))
+		i2cBus.WriteByte(byte(85))
 		_, err := spiBus.TransferAndReceiveByte(dataByte)
 		if err != nil {
 			panic(err)
