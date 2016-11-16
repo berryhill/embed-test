@@ -54,7 +54,7 @@ func main() {
 	}
 	defer embd.CloseI2C()
 
-	i2cBus := embd.NewI2CBus(2)
+	i2cBus := embd.NewI2CBus(0)
 
 	//dataByte := byte(85)
 	fmt.Println("starting")
